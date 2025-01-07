@@ -4,6 +4,7 @@
     --cms-ex-hover-light:#2a3238;
     --cms-ex-hover-logo:#326e99;
     --csm-ex-extra-small:20px;
+    --cms-ex-icons-color:#a7aaad;
 }
 .cursor-pointer{
     cursor: pointer;
@@ -24,15 +25,17 @@
     width: 10%;
 }
 .hover-logo-text:hover{
-    color: var(--cms-ex-hover-logo);
+    color: var(--cms-ex-hover-logo) !important;
 }
 .admin-top-nav{
 background-color: var(--cms-ex-light-dark);
 position: fixed;
 width: 100%;
-color: #a7aaad;
+color: var(--cms-ex-icons-color);
 }
-
+.icons-color{
+color: var(--cms-ex-icons-color);
+}
 .hover-light:hover{
     background-color: var(--cms-ex-hover-light);
 }
