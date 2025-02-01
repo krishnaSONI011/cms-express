@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<%- include('../../partials/bootstrapStyle') %>
+<body>
+  <div class="w-100 vh-100 d-flex justify-content-center align-items-center">
+
+  
+    <form class="w-50" method="POST" action="/auth/register">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <h1 class="nav-logo-font text-center m-1">cs</h1>
+        <div class="row mb-4">
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="form3Example1" class="form-control" name="name"/>
+              <label class="form-label" for="form3Example1">Name</label>
+            </div>
+          </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="form3Example2" class="form-control" name="nickname"/>
+              <label class="form-label" for="form3Example2">User Name</label>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Email input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <input type="email" id="form3Example3" class="form-control" name="email"/>
+          <label class="form-label" for="form3Example3">Email address</label>
+        </div>
+      
+        <!-- Password input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <input type="password" id="form3Example4" class="form-control" name="password"/>
+          <label class="form-label" for="form3Example4" >Password</label>
+        </div>
+      
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+          <label class="form-check-label" for="form2Example33">
+            Subscribe to our newsletter
+          </label>
+        </div>
+      
+        <!-- Submit button -->
+        <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+      
+        <!-- Register buttons -->
+        
+      </form>
+  </div>
+</body>
+<%- include('../../partials/bootstrapJs') %>
+</html>

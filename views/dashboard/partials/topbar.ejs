@@ -15,7 +15,10 @@
     </div>
    <div class="hover-light cursor-pointer hover-logo-text px-2">
     <span>
-      Hello,{username}
+        <% if(user){ %>
+      Hello,<%= user.username %> 
+      <% } else{ %>
+        Hello ,Gust <% } %>
     </span>
     <span>
         <img src="/images/user-mini-avatar.png" alt="" width="16" height="16">
