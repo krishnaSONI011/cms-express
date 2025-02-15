@@ -9,7 +9,8 @@ const session = require('express-session');
 app.use(session({
     secret: 'cms-for-me',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    cookie: { secure: false } // Set `true` if using HTTPS
 }));
 
 app.use(express.urlencoded({ extended: true }));
@@ -29,22 +30,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware to check authentication
 function authenticate(req, res, next) {
+    if (req.path === '/login') { 
+        return next(); 
+    }
     if (req.session.user) {
         return next();
+    } else {
+        res.redirect('/dashboard/login');
     }
-    res.redirect('/dashboard/login');
 }
+
 
 // Routes
 app.use('/auth', authRoutes);
-app.use('/dashboard', authenticate, dashboardRoutes); // Protects all dashboard routes
+app.use('/dashboard',authenticate, dashboardRoutes); // Protects all dashboard routes
 
 app.get('/', (req, res) => {
     res.render('index');
 });
 
 // Admin Route (Protected)
-app.get('/admin', authenticate, (req, res) => {
+app.get('/admin', (req, res) => {
     res.redirect('/dashboard');
 });
 

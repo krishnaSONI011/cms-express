@@ -13,6 +13,11 @@
         <form class="w-50" method="POST" action="/auth/login">
             <h1 class="nav-logo-font text-center m-1">cs</h1>
             <!-- Email input -->
+            <% if(err){ %>
+            <div class="alert alert-danger" role="alert">
+              <%= err %>
+            </div>
+            <%}%>
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="email" id="form2Example1" class="form-control" name="email" required/>
               <label class="form-label" for="form2Example1">Email address</label>

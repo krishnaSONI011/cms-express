@@ -15,11 +15,11 @@ router.post('/login', async (req, res) => {
         db.query('SELECT * FROM users WHERE user_email = ?', [email], async (err, result) => {
             if (err) {
                 console.error(err);
-                return res.status(500).send('Database error');
+                return res.render('dashboard/auth/login',{err:err})
             }
 
             if (result.length === 0) {
-                return res.send('Invalid email or password'); // No user found
+                return res.render('dashboard/auth/login',{err:"invalid username and password"}); // No user found
             }
 
             const user = result[0];
